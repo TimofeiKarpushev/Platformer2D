@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Coins : MonoBehaviour
 {
+    const string Coin = "Coin";
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Coin")
+        if(collision.gameObject.CompareTag(Coin))
         {
             Destroy(collision.gameObject);
         }
