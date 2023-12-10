@@ -16,7 +16,7 @@ public class CoinsSpawn : MonoBehaviour
         _coroutine = StartCoroutine(DelayedTime());
     }
 
-    IEnumerator DelayedTime()
+    private IEnumerator DelayedTime()
     {
         var waitForSeconds = new WaitForSeconds(_delay);
 

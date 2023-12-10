@@ -11,8 +11,8 @@ using UnityEngine;
 public class HERO : MonoBehaviour
 {
     const string Horizontal = "Horizontal";
-    const int _speed = 3;
-    const int _jumpForce = 5;
+    const int Speed = 3;
+    const int JumpForce = 5;
 
     private Rigidbody2D _rigidBody;
     private SpriteRenderer _spriteRenderer;
@@ -43,7 +43,7 @@ public class HERO : MonoBehaviour
     private void Walk()
     {
         _moveVector.x = Input.GetAxisRaw(Horizontal);
-        _rigidBody.velocity = new Vector2(_moveVector.x * _speed, _rigidBody.velocity.y);
+        _rigidBody.velocity = new Vector2(_moveVector.x * Speed, _rigidBody.velocity.y);
         _animator.SetFloat("MoveX", Mathf.Abs(_moveVector.x));
 
         _spriteRenderer.flipX = _moveVector.x < 0;
@@ -53,7 +53,7 @@ public class HERO : MonoBehaviour
     {
         if (_onGround && Input.GetKeyDown(KeyCode.Space))
         {
-            _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, _jumpForce);
+            _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, JumpForce);
         }
     }
 
