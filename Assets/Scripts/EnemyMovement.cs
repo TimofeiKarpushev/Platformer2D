@@ -7,16 +7,16 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]private Transform[] _points;
 
     private float _speed = 2;
-    private int i;
+    private int _targetPosititon;
     private float _reachedPoint = 0.1f;
 
     private void FixedUpdate()
     {
-        transform.position = Vector2.MoveTowards(transform.position, _points[i].position, _speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, _points[_targetPosititon].position, _speed * Time.deltaTime);
 
-        if(Vector2.Distance(transform.position, _points[i].position) < _reachedPoint)
+        if(Vector2.Distance(transform.position, _points[_targetPosititon].position) < _reachedPoint)
         {
-            i = i > 0  ? i = 0 : i = 1;
+            _targetPosititon = _targetPosititon > 0  ? _targetPosititon = 0 : _targetPosititon = 1;
         }
     }
 }

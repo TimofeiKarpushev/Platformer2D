@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CoinsSpawn : MonoBehaviour
 {
-    public GameObject[] Coins;
-    public Vector3[] Position;
+    [SerializeField] private GameObject[] _coins;
+    [SerializeField] private Vector3[] _position;
 
     private Coroutine _coroutine;
 
@@ -20,9 +20,9 @@ public class CoinsSpawn : MonoBehaviour
     {
         var waitForSeconds = new WaitForSeconds(_delay);
 
-        for (int i = 0; i < Coins.Length; i++)
+        for (int i = 0; i < _coins.Length; i++)
         {
-            GameObject newCoins = Instantiate(Coins[i], Position[i], Quaternion.identity);
+            GameObject newCoins = Instantiate(_coins[i], _position[i], Quaternion.identity);
             yield return waitForSeconds;
         }
     }

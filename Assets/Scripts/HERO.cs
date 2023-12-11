@@ -10,6 +10,7 @@ using UnityEngine;
 [RequireComponent(typeof(CircleCollider2D))]
 public class HERO : MonoBehaviour
 {
+    const string MoveX = "MoveX";
     const string Horizontal = "Horizontal";
     const int Speed = 3;
     const int JumpForce = 5;
@@ -44,7 +45,7 @@ public class HERO : MonoBehaviour
     {
         _moveVector.x = Input.GetAxisRaw(Horizontal);
         _rigidBody.velocity = new Vector2(_moveVector.x * Speed, _rigidBody.velocity.y);
-        _animator.SetFloat("MoveX", Mathf.Abs(_moveVector.x));
+        _animator.SetFloat(MoveX, Mathf.Abs(_moveVector.x));
 
         _spriteRenderer.flipX = _moveVector.x < 0;
     }
